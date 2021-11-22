@@ -31,3 +31,16 @@ docker-compose up
 ```
 docker-compose down
 ```
+
+
+Create Controller:
+
+```
+bin/rails generate controller Hello index --skip-routes
+```
+
+Create Model:
+
+```
+bin/rails generate model Hello name:string body:text
+```

@@ -24,6 +24,16 @@ docker-compose build
 
 ```
 docker-compose up
+docker-compose run web rake db:create
+```
+
+### Create Database
+
+```
+psql
+# CREATE USER postgres SUPERUSER; -- or CREATE
+# CREATE DATABASE myapp_development;
+# CREATE DATABASE myapp_test;
 ```
 
 ### Stop the app
@@ -31,6 +41,7 @@ docker-compose up
 ```
 docker-compose down
 ```
+
 
 
 Create Controller:
@@ -43,4 +54,10 @@ Create Model:
 
 ```
 bin/rails generate model Hello name:string body:text
+```
+
+Migrate:
+
+```
+bin/rails db:migrate
 ```

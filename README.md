@@ -7,6 +7,7 @@
 #### Build
 
 ```
+docker-compose build
 docker-compose run --no-deps web rails new . --force --database=postgresql
 ```
 
@@ -23,7 +24,7 @@ docker-compose build
 ### Start the app
 
 ```
-docker-compose up
+docker-compose up # add -d to run docker containers in the background
 docker-compose run web rake db:create
 ```
 
@@ -47,17 +48,20 @@ docker-compose down
 Create Controller:
 
 ```
-bin/rails generate controller Hello index --skip-routes
+docker-compose run web bin/rails generate controller Hello index --skip-routes
 ```
 
 Create Model:
 
 ```
-bin/rails generate model Hello name:string body:text
+docker-compose run web bin/rails generate model Hello name:string body:text
 ```
 
 Migrate:
 
 ```
-bin/rails db:migrate
+docker-compose run web  bin/rails db:migrate
+docker-compose run web  bin/rails console
+irb(main):002:0> italian = Hello.new(name: "italian", body: "ciao")
+italian.save
 ```

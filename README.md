@@ -54,7 +54,7 @@ docker-compose run web bin/rails generate controller Hello index --skip-routes
 Create Model:
 
 ```
-docker-compose run web bin/rails generate model Hello name:string body:text
+docker-compose run web bin/rails generate model Hello lang:string word:text
 ```
 
 Migrate:
@@ -62,6 +62,35 @@ Migrate:
 ```
 docker-compose run web  bin/rails db:migrate
 docker-compose run web  bin/rails console
-irb(main):002:0> italian = Hello.new(name: "italian", body: "ciao")
-italian.save
 ```
+
+Drop a table:
+
+```
+bin/rails generate migration DropHellos
+```
+
+```
+class DropHellos < ActiveRecord::Migration[5.2]
+  def change
+    drop_table :hellos
+  end
+end
+```
+
+```
+docker-compose run web  bin/rails db:migrate RAILS_ENV=development
+```
+
+### Partials
+
+`_form.html.erb`
+
+```
+<%= render "form", hello: @hello %>
+```
+
+
+# 1. <a href="/hellos/<%= hello.id %>"> 
+# 2. <a href="<%= hello_path(hello) %>">
+# 3. <%= link_to hello.name, hello %>

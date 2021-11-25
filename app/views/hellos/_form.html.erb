@@ -1,0 +1,30 @@
+<!-- Form Builder -->
+<%= form_with model: hello do |form| %>
+  <div>
+    <%= form.label :lang %><br>
+    <%= form.text_field :lang %>
+    <% @hello.errors.full_messages_for(:lang).each do |message| %>
+        <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :word %><br>
+    <%= form.text_area :word %>
+    <% @hello.errors.full_messages_for(:word).each do |message| %>
+        <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :stauts %><br>
+    <%= form.select :stauts, ['public', 'private', 'archived'], selected: 'public' %>
+    <% @hello.errors.full_messages_for(:status).each do |message| %>
+        <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

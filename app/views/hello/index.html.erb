@@ -1,0 +1,12 @@
+<h1>Hello</h1>
+<ul>
+    <% @hellos.each do |hello| %>
+        <li>
+        <%= hello.name %>
+        </li>
+        <li>
+        <%= hello.body %>
+        </li>
+    <% end %>
+</ul>
+<p>Find me in app/views/hello/index.html.erb</p>

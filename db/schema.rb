@@ -10,16 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_24_154941) do
+ActiveRecord::Schema.define(version: 2021_11_25_173230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "hellos", force: :cascade do |t|
-    t.string "name"
-    t.text "body"
+    t.string "lang"
+    t.text "word"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status"
   end
 
+  create_table "synonyms", force: :cascade do |t|
+    t.bigint "hello_id"
+    t.string "word"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "status"
+    t.index ["hello_id"], name: "index_synonyms_on_hello_id"
+  end
+
+  add_foreign_key "synonyms", "hellos"
 end

@@ -1,0 +1,21 @@
+<h1><%= @hello.lang %></h1>
+
+<p><%= @hello.word %></p>
+
+<ul>
+    <li><%= link_to "Edit", edit_hello_path(@hello) %></li>
+    <li><%= link_to "Destroy", hello_path(@hello), 
+        method: :delete, data: {confirm: "Are you sure?" } %>
+    </li>
+    <li><%= link_to "Back", root_path %></li>
+</ul>
+
+<h2>Synonyms:</h2>
+
+<%= render @hello.synonyms %>
+
+<h2>Add new Synonym</h2>
+<%= render "synonyms/form" %>
+
+
+

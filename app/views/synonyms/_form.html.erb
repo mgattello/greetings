@@ -1,0 +1,18 @@
+<%= form_with model: [@hello, @hello.synonyms.build ] do |form| %>
+  <p>
+      <%= form.label :word %><br>
+      <%= form.text_field :word %>
+  </p>
+
+  <p>
+      <%= form.submit %>
+  </p>
+  
+  <p>
+    <%= form.label :status %>
+  </p>
+  <p> 
+    <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
+  </p>
+  <br>
+<% end %>

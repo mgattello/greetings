@@ -1,0 +1,15 @@
+<h1>greetings</h1>
+
+Our greeter has <%= Hello.public_count %> hellos and counting!
+
+<ul>
+    <% @hellos.each do |hello| %>
+        <% unless hello.archived? %>
+            <li>
+                <%= link_to hello.lang, hello %>
+            </li>
+        <% end %>
+    <% end %>
+</ul>
+
+<%= link_to "New Hello", new_hello_path %>

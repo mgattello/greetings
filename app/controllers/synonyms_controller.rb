@@ -1,4 +1,6 @@
 class SynonymsController < ApplicationController
+    http_basic_authenticate_with name: "name", password: "password", only: :destroy
+
     def create
         hello_find
         @synonym = @hello.synonyms.create(synonym_params)

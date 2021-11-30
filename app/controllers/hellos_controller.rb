@@ -1,4 +1,7 @@
 class HellosController < ApplicationController
+    # Devise rails engine and Authlogic are 2 other popular auth add-ons
+    http_basic_authenticate_with name: "name", password: "password", except: [:index, :show]
+
     def index
       @hellos = Hello.all
     end

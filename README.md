@@ -94,3 +94,6 @@ docker-compose run web  bin/rails db:migrate RAILS_ENV=development
 # 1. <a href="/hellos/<%= hello.id %>"> 
 # 2. <a href="<%= hello_path(hello) %>">
 # 3. <%= link_to hello.name, hello %>
+
+
+Guide link: https://guides.rubyonrails.org/getting_started.html
